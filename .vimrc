@@ -125,7 +125,7 @@
     set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
-    set history=1000                    " Store a ton of history (default is 20)
+    set history=10000                   " Store a ton of history (default is 20)
     set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
@@ -580,11 +580,11 @@
 
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
+            let NERDTreeChDirMode=2
+            let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
-            let NERDTreeKeepTreeInNewTab=1
+            let NERDTreeKeepTreeInNewTab=0
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
@@ -683,6 +683,8 @@
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
+            inoremap <silent> <F9> :TagbarToggle<CR>
+            nnoremap <silent> <F9> :TagbarToggle<CR>
         endif
     "}
 
@@ -1249,3 +1251,7 @@
         endif
     endif
 " }
+
+"Resize Window
+nnoremap <F2> <ESC><C-W>-
+nnoremap <F3> <ESC><C-W>+
